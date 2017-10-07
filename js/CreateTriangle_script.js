@@ -1,24 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Привет WebGL!</title>
-</head>
-<body>
-<canvas id="canvas3D" width="400" height="300">Ваш браузер не поддерживает элемент canvas</canvas>
-<!-- фрагментный шейдер -->
-<script id="shader-fs" type="x-shader/x-fragment">
-  void main(void) {
-    gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
-  }
-</script>
-<!-- вершинный шейдер -->
-<script id="shader-vs" type="x-shader/x-vertex">
-  attribute vec3 aVertexPosition;
-  void main(void) {
-    gl_Position = vec4(aVertexPosition, 1.0);
-  }
-</script>
-<script type="text/javascript">
 var gl;
 var shaderProgram;
 var vertexBuffer;
@@ -120,6 +99,3 @@ window.onload=function(){
         draw();
     }
 }
-</script>
-</body>
-</html>

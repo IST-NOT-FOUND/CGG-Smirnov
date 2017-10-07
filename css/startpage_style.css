@@ -1,0 +1,13 @@
+html,body {
+  height: auto;
+  margin: 0;
+  padding: 5px;
+  background-color: #696969;
+  color: #DCDCDC;
+}
+
+
+.contanier-fluid {
+  border:10px solid #00BFFF;
+
+}

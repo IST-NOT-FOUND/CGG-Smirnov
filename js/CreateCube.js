@@ -1,9 +1,3 @@
-<DOCTYPE html>
-<html>
-<head>
-<title>Куб</title>
-<script src="three_js/three.min.js"></script>
-<script type='text/javascript'>
 window.onload=function(){
     var camera, scene, renderer;
     var geometry, material, mesh;
@@ -66,9 +60,3 @@ window.onload=function(){
         renderer.render(scene, camera);
     }
 }
-</script>
-</head>
-<body bgcolor = "0x111111">
-
-</body>
-</html>
