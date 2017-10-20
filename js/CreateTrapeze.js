@@ -122,3 +122,7 @@ window.onload=function(){
 function getRandomValue(min, max) {
     return (Math.random() * (max - min) + min) / 100;
 }
+function change_color() {
+    initBuffers();
+    draw();
+}
