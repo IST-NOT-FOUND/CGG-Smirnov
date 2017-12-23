@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Работа с координатами</title>
+
+<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/startpage_style.css" rel="stylesheet" type="text/css"/>
+<meta charset="utf-8" />
+</head>
+  <body>
+      <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+              <div class="navbar-header">
+                  <a class="navbar-brand" href="../../index.htm">Лабораторные работы по дисциплине "Компьютерная геометрия и графика"</a>
+              </div>
+          </div>
+      </nav>
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.htm">Главная</a></li>
+          <li class="breadcrumb-item"><a href="../Chapter_7.html">|Глава 7|</a></li>
+          <li class="breadcrumb-item active">Работа с координатами</li>
+      </ol>
+
+      <canvas id="canvas3D" width="400" height="300">Ваш браузер не поддерживает элемент canvas</canvas>
+
+      <script id="shader-fs" type="x-shader/x-fragment">
+      precision highp float;
+      uniform sampler2D uSampler;
+      varying vec2 vTextureCoords;
+
+        void main(void) {
+          gl_FragColor = texture2D(uSampler, vTextureCoords);
+        }
+      </script>
+
+      <script id="shader-vs" type="x-shader/x-vertex">
+      attribute vec3 aVertexPosition;
+      attribute vec2 aVertexTextureCoords;
+      varying vec2 vTextureCoords;
+
+        void main(void) {
+          gl_Position = vec4(aVertexPosition, 1.0);
+          vTextureCoords = aVertexTextureCoords;
+        }
+      </script>
+  <script  src="../../js/gl-matrix-min.js"></script>
+  <script src="../../js/WorkWithCoordinates.js"></script>
+
+</body>
+</html>
