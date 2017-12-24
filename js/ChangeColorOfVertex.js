@@ -150,6 +150,7 @@ function RedRight(){
 function RedLeft(){
   v2r = 1.0;
   v2g = 0.0;
+  v2b = 0.0;
 
   var сolors = [
       v1r, v1g, v1b,
