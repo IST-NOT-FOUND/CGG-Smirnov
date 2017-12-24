@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Освещение Ламберта</title>
+<title>Отключение освещения</title>
 
 <link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="../../css/startpage_style.css" rel="stylesheet" type="text/css"/>
@@ -18,33 +18,39 @@
       <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="../../index.htm">Главная</a></li>
           <li class="breadcrumb-item"><a href="../Chapter_8.html">|Глава 8|</a></li>
-          <li class="breadcrumb-item active">Освещение Ламберта</li>
+          <li class="breadcrumb-item active">Отключение освещения</li>
       </ol>
+      <ol class="breadcrumb">
+      <div class="btn-group">
+          <div class="row">
+                      <button type="button" id="btnOff" onclick="TurnOff()" class="btn btn-info">Выключить</button>
+          </div>
 
+      </div>
+      </ol>
       <canvas id="canvas3D" width="400" height="300">Ваш браузер не поддерживает элемент canvas</canvas>
-
       <script id="shader-vs" type="x-shader/x-vertex">
-  attribute vec3 aVertexPosition;
-  attribute vec3 aVertexNormal;
+    attribute vec3 aVertexPosition;
+    attribute vec3 aVertexNormal;
 
-  uniform mat4 uMVMatrix;
-  uniform mat4 uPMatrix;
-  uniform mat3 uNMatrix;
+    uniform mat4 uMVMatrix;
+    uniform mat4 uPMatrix;
+    uniform mat3 uNMatrix;
 
-  uniform vec3 uLightPosition;
-  uniform vec3 uAmbientLightColor;
-  uniform vec3 uDiffuseLightColor;
-  uniform vec3 uSpecularLightColor;
+    uniform vec3 uLightPosition;
+    uniform vec3 uAmbientLightColor;
+    uniform vec3 uDiffuseLightColor;
+    uniform vec3 uSpecularLightColor;
 
-  uniform vec3 uAmbientMaterialColor;
-  uniform vec3 uDiffuseMaterialColor;
-  uniform vec3 uSpecularMaterialColor;
+    uniform vec3 uAmbientMaterialColor;
+    uniform vec3 uDiffuseMaterialColor;
+    uniform vec3 uSpecularMaterialColor;
 
-  varying vec3 vLightWeighting;
+    varying vec3 vLightWeighting;
 
-  const float shininess = 100.0;
+    const float shininess = 100.0;
 
-  void main() {
+    void main() {
     // установка позиции наблюдателя сцены
     vec4 vertexPositionEye4 = uMVMatrix * vec4(aVertexPosition, 1.0);
     vec3 vertexPositionEye3 = vertexPositionEye4.xyz / vertexPositionEye4.w;
@@ -68,26 +74,27 @@
     float specularLightParam = pow(specularLightDot, shininess);
 
     // отраженный свет равен сумме фонового, диффузного и зеркального отражений света
-   vLightWeighting = uAmbientMaterialColor * uAmbientLightColor +
+    vLightWeighting = uAmbientMaterialColor * uAmbientLightColor +
                         uDiffuseMaterialColor * uDiffuseLightColor * diffuseLightDot +
                         uSpecularMaterialColor * uSpecularLightColor * specularLightParam;
 
      gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
-  }
-</script>
+    }
+    </script>
 
-<script id="shader-fs" type="x-shader/x-fragment">
-  precision mediump float;
+    <script id="shader-fs" type="x-shader/x-fragment">
+    precision mediump float;
 
-  varying vec3 vLightWeighting;
+    varying vec3 vLightWeighting;
 
-  void main() {
+    void main() {
     gl_FragColor = vec4(vLightWeighting.rgb, 1);
     // gl_FragColor = vec4(0.0, 0.5, 0.0, 1);
-  }
-</script>
+    }
+    </script>
+
   <script  src="../../js/gl-matrix-min.js"></script>
-  <script src="../../js/UseOfMaterials.js"></script>
+  <script src="../../js/OffLight.js"></script>
 
 </body>
 </html>

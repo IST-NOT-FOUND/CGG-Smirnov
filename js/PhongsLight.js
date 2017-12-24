@@ -12,7 +12,8 @@ var xAngle = 0.1; // угол вращения в радианах вокруг 
 
 var mvMatrix = mat4.create(); // матрица вида модели
 var pMatrix = mat4.create();  // матрица проекции
-var nMatrix = mat3.create();  // матрица нормалей
+var nMatrix = mat3.create();
+var shininess = 0; // матрица нормалей
 
 // установка шейдеров
 function initShaders() {

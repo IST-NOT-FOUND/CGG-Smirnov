@@ -152,9 +152,9 @@ window.onload=function(){
     }
 }
 function changeColor(){
-    vRedColor=document.getElementById("B").value/70;
-    vGreenColor=document.getElementById("B").value/32;
-    vBlueColor=document.getElementById("B").value/400;
+    vRedColor=document.getElementById("B").value/32;
+    vGreenColor=document.getElementById("B").value/64;
+    vBlueColor=document.getElementById("B").value/255;
 
     // установка цветов для каждой вершины
     var сolors = [
